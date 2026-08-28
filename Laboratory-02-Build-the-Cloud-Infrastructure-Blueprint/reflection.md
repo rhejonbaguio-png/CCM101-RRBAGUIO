@@ -1,10 +1,16 @@
 Mission Reflection: Build the Cloud Infrastructure Blueprint
+
 Questions:
-Which cloud infrastructure component do you think is the most important? Why?
-How does Linux support cloud computing?
-Why is technical documentation important before deploying infrastructure?
-What new skills did you learn during this laboratory activity?
-How has your GitHub portfolio improved after completing this mission?
+
+# 1.Which cloud infrastructure component do you think is the most important? Why?
+
+# 2.How does Linux support cloud computing?
+
+# 3.Why is technical documentation important before deploying infrastructure?
+
+# 4.What new skills did you learn during this laboratory activity?
+
+# 5.How has your GitHub portfolio improved after completing this mission?
 
 During this laboratory activity, I learned more about cloud infrastructure and how its different components work together to support cloud computing. Among the components, I think **compute resources** are the most important because they provide the processing power needed to run applications, services, and commands. Without compute resources, the system would not be able to process tasks or provide services to users. However, compute, storage, networking, and the operating system must work together for a complete cloud environment.
 
