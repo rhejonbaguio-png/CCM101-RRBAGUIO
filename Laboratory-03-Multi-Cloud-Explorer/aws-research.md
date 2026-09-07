@@ -25,7 +25,7 @@ The AWS Management Console is a web-based interface used to access and manage AW
 
 1. **Scalability** – AWS resources can be increased or decreased depending on the needs of an application or organization.
 2. **Global Availability** – AWS has infrastructure in different geographical locations, allowing businesses to deploy applications closer to their users.
-3. **Wide Range of Services** – AWS provides services for computing, storage, networking, databases, security, analytics, artificial intelligence, and many other areas.
+3. **Wide Range of Services** – AWS provides services for computing, storage, networking, databases, security, analytics, artificial intelligence, and many other areas
 
 ## Typical Enterprise Use Cases
 
