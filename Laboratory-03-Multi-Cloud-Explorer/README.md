@@ -23,7 +23,8 @@ This information can also help system administrators monitor resource usage, ide
 
 The screenshot below shows the results of the Linux commands executed in the KillerCoda Playground. The terminal output provides the actual system information collected during the investigation.
 
-![Linux Investigation Terminal Output](screenshots/killercoda-terminal.png)
+<img width="952" height="970" alt="image" src="https://github.com/user-attachments/assets/5802ab28-8725-4c5d-9290-747193f7b8a0" />
+
 
 ### Cloud Migration Recommendation
 
