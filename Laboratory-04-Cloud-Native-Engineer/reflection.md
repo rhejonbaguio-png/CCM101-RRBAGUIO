@@ -1,1 +1,16 @@
+# Mission Reflection
+
+Using a Docker container is much faster compared to installing an operating system on a Virtual Machine. A VM needs to install and run its own operating system before the application can be used, so the setup can take several minutes and use more resources. With Docker, the container can start in just a few seconds because it uses the host operating system. In this activity, I was able to run the Nginx web server using only a few commands, which showed me how much faster and more efficient containers can be for running applications.
+
+Port mapping like `-p 8080:80` is necessary so we can access the web server from the host machine. In our activity, port 8080 was used on the host while port 80 was used by Nginx inside the container. The port mapping connects these two ports, allowing us to use `curl http://localhost:8080` and see the Nginx welcome page. Without port mapping, the web server inside the container would not be directly accessible through that host port. This helped me understand how containers communicate with the outside environment.
+
+When using the `docker rm` command, the container is completely removed from Docker. Any data that was stored only inside the container can also be lost when the container is deleted. This made me realize that important files or data should not only be kept inside the container. Instead, volumes or other storage methods can be used when data needs to remain available even after the container is removed. This is important when working with applications that need persistent data.
+
+Containerization can also improve the way software developers and IT operations teams work together. Developers can build and test applications inside containers using the same environment that IT teams can deploy. This can make deployment easier and reduce problems caused by different setups. Because of this, developers and IT teams can work more closely and have a smoother workflow, which is an important part of DevOps and modern cloud-native development.
+
+This laboratory also helped me understand the importance of Docker images and containers. An image provides the files and configuration needed to create a container, while the container is the running instance of that image. By using the Nginx image, I was able to deploy a working web server without manually installing and configuring Nginx on the system.
+
+My GitHub portfolio is slowly becoming more complete as I add each laboratory activity and its documentation. I am learning how to organize my files, screenshots, Markdown documents, and technical information in one repository. It also gives me a record of the activities and skills I have learned in Cloud Computing. As I continue adding more laboratories, I think my portfolio will become a useful collection of my work and progress.
+
+Overall, Laboratory 04 gave me practical experience with Docker and containerization. I learned how to pull an image, run a container, test a web server, stop a container, and remove it using Docker commands. These skills are useful for understanding how modern applications are developed and deployed in cloud environments. This activity also increased my confidence in using the Linux terminal and working with cloud-native technologies.
 
