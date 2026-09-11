@@ -74,9 +74,4 @@ Another challenge was understanding the purpose of port mapping in the Docker ru
 
 After repeating the steps and checking the results using `docker ps` and `docker ps -a`, I was able to successfully run, test, stop, and remove the Nginx container.
 
-## Reflection
-
-This laboratory activity gave me a better understanding of how Docker and containers are used in cloud computing. I learned that containers provide a lightweight way of running applications while making them easier to manage and deploy.
-
-The Nginx activity was especially helpful because I was able to see the complete container lifecycle, from downloading an image and creating a container to testing, stopping, and removing it. Overall, this laboratory improved my knowledge of Docker commands, containerization, port mapping, and cloud-native technologies.
 
