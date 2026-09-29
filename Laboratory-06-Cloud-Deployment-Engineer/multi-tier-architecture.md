@@ -1,51 +1,52 @@
-# Docker Compose Guide
+# Multi-Tier Architecture - Two-Tier Architecture
 
-## What Does the `services:` Block Do?
+A Two-Tier Architecture is a system that separates an application into two main parts: the Web/Application Tier and the Database Tier. These two tiers work together to process user requests and manage data.
 
-The `services:` block defines the different containers that are part of the application. In this deployment, there are two services: the `database` service and the `app` service.
+## The Web/Application Tier
 
-The `database` service uses the MariaDB image, while the `app` service uses the Nextcloud image.
+The web/application tier. It serves the user interface, handles HTTP requests, manages file uploads and downloads, and runs Nextcloud’s application logic. Users interact with this tier directly through port 8080.
 
-## How Does the Nextcloud App Container Find the Database?
+In this deployment, the Web/Application Tier is provided by the Nextcloud container. It is responsible for providing the private cloud storage interface that users access through a web browser.
 
-The Nextcloud application uses the `MYSQL_HOST` environment variable to identify the database container.
+## The Database Tier
 
-In the Compose file, the value is:
+The database tier stores persistent data such as user accounts, credentials, file metadata, sharing permissions, and application state. It does not handle web traffic directly and only responds to queries from the application tier.
 
-```yaml
-MYSQL_HOST=database
+In this deployment, MariaDB is used as the Database Tier. The MariaDB container stores the database information required by the Nextcloud application.
+
+## Why separate them?
+
+Separating them lets each tier be updated or restarted independently without affecting the other. It also improves security, since the database doesn't need to be exposed to the internet. Finally, it keeps the setup cleaner and easier to scale later.
+
+Using separate containers also gives each service a specific responsibility. Docker Compose allows the Nextcloud application and MariaDB database to run as separate services while still communicating with each other.
+
+## Architecture Overview
+
+```text
+User
+  |
+  | HTTP Request
+  v
++-------------------------+
+|      Nextcloud App      |
+|   Web/Application Tier  |
+|     Port 8080 -> 80     |
++------------+------------+
+             |
+             | Database Connection
+             v
++-------------------------+
+|         MariaDB         |
+|      Database Tier      |
+|        Port 3306        |
++-------------------------+
 ```
 
-The word `database` refers to the name of the MariaDB service defined under the `services:` block. This allows the Nextcloud container to communicate with the database container.
+## Docker Compose Services
 
-## What Is the Difference Between `docker run` and `docker-compose up -d`?
+The two services used in this architecture are:
 
-The `docker run` command is used to create and start a Docker container individually. It is useful when deploying a single container.
+* **App** – The Nextcloud Web/Application container.
+* **Database** – The MariaDB Database container.
 
-The `docker-compose up -d` command is used to deploy multiple services that are defined inside a `docker-compose.yml` file. The `-d` option runs the containers in the background.
-
-In this mission, Docker Compose allows the Nextcloud application and MariaDB database to be deployed together using one configuration file and one command.
-
-## Docker Compose Configuration
-
-The deployment uses the following services:
-
-* **database** – MariaDB database container
-* **app** – Nextcloud application container
-
-The Nextcloud application is exposed through port `8080`, which is mapped to port `80` inside the container.
-
-## Deployment Commands
-
-```bash
-mkdir nextcloud-deployment
-cd nextcloud-deployment
-nano docker-compose.yml
-docker-compose up -d
-docker-compose ps
-docker-compose down
-```
-
-## Infrastructure as Code
-
-Docker Compose demonstrates the concept of Infrastructure as Code because the application infrastructure is described in a YAML configuration file. Instead of manually configuring each container, the required services and settings can be defined in the Compose file and deployed using Docker Compose.
+These services are defined in the `docker-compose.yml` file and are deployed together using Docker Compose.
