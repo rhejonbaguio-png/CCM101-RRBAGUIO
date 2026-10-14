@@ -83,6 +83,3 @@ The expected result is `HTTP/1.1 200 OK`, which indicates that the Nginx web ser
 - Testing application connectivity using `curl`.
 - Monitoring the running Docker container and documenting security settings.
 
-## Conclusion
-
-This laboratory helped me understand the importance of securing a server using a firewall. By denying incoming traffic by default and allowing only the required connections, I learned how to reduce unnecessary exposure to potential attacks. I also verified that the Nginx application was running and responding successfully through port 8080. This activity improved my understanding of basic cloud security and server protection.
