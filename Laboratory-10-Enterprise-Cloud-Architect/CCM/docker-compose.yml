@@ -1,0 +1,40 @@
+services:
+  db:
+    image: mariadb:11.4
+    container_name: wordpress-db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: 
+      MYSQL_PASSWORD: 
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - wp-net
+
+  wordpress:
+    image: wordpress:latest
+    container_name: wordpress-app
+    restart: always
+    ports:
+      - "80:80"
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: 
+      WORDPRESS_DB_PASSWORD: 
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - wp_data:/var/www/html
+    depends_on:
+      - db
+    networks:
+      - wp-net
+
+volumes:
+  db_data:
+  wp_data:
+
+networks:
+  wp-net:
+    driver: bridge
